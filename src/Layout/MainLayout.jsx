@@ -5,17 +5,17 @@ import Footer from '../Components/Footer';
 
 const MainLayout = () => {
   return (
-    <>
-      <nav>
+    <div className='relative'>
+      <nav className='fixed z-40 w-full'>
         <Navbar></Navbar>
       </nav>
-      <div className='bg-base-200 min-h-[calc(100vh-298px)]'>
+      <div className='bg-base-200 pt-[65px] min-h-[calc(100vh-298px)]'>
         <Outlet />
       </div>
       <div className='bg-base-200 pb-10'>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

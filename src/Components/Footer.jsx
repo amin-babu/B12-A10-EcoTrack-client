@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <footer className="bg-base-100 w-11/12 rounded-2xl shadow-md mx-auto text-base-content px-6 py-8 border border-base-300">
+    <footer className="bg-base-100 w-11/12 rounded-2xl shadow-md mx-auto text-base-content px-6 py-8 border border-gray-300">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
 
         <ul className="flex gap-4 text-sm font-medium">
