@@ -5,9 +5,9 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
-const HeroSlider = () => {
+const HeroSlider = ({ sliderData }) => {
   const swiperRef = useRef(null);
-
+  console.log(sliderData);
   return (
     <div className="relative w-full h-[280px] md:h-[calc(100vh-65px)] overflow-hidden">
       <Swiper
@@ -17,66 +17,28 @@ const HeroSlider = () => {
         modules={[Pagination, Autoplay]}
         className="w-full h-full"
       >
-        {/* Slide 1 */}
-        <SwiperSlide>
-          <div className="w-full h-full relative">
-            <img
-              src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6"
-              className="w-full h-full object-cover"
-              alt="Challenge Slide"
-            />
-            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white px-6 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                Plastic Free Week
-              </h2>
-              <p className="mb-4 text-sm md:text-base max-w-xl">
-                Join the mission to reduce plastic waste and build a cleaner,
-                greener planet.
-              </p>
-              <button className="btn btn-primary">View Challenge</button>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        {/* Slide 2 */}
-        <SwiperSlide>
-          <div className="w-full h-full relative">
-            <img
-              src="https://images.unsplash.com/photo-1523978591478-c753949ff840"
-              className="w-full h-full object-cover"
-              alt="Challenge Slide"
-            />
-            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white px-6 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                Walk to Work Challenge
-              </h2>
-              <p className="mb-4 text-sm md:text-base max-w-xl">
-                Reduce CO₂ emissions by choosing walking over vehicles.
-              </p>
-              <button className="btn btn-primary">View Challenge</button>
-            </div>
-          </div>
-        </SwiperSlide>
-
-        {/* Slide 3 */}
-        <SwiperSlide>
-          <div className="w-full h-full relative">
-            <img
-              src="https://images.unsplash.com/photo-1621788051568-dd6bbe1f2f5f"
-              className="w-full h-full object-cover"
-              alt="Challenge Slide"
-            />
-            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white px-6 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                Home Energy Saver
-              </h2>
-              <p className="mb-4 text-sm md:text-base max-w-xl">
-                Save energy, cut bills, and reduce your carbon footprint.
-              </p>
-              <button className="btn btn-primary">View Challenge</button>
-            </div>
-          </div>
-        </SwiperSlide>
+        {
+          sliderData.map(data => (
+            <SwiperSlide>
+              <div className="w-full h-full relative">
+                <img
+                  src={data.image}
+                  className="w-full h-full object-cover"
+                  alt="Challenge Slide"
+                />
+                <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white px-6 text-center">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                    {data.title}
+                  </h2>
+                  <p className="mb-4 text-sm md:text-base max-w-xl">
+                    {data.subtitle}
+                  </p>
+                  <button className="btn btn-primary">View Challenge</button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))
+        }
       </Swiper>
 
       {/* Custom Buttons */}

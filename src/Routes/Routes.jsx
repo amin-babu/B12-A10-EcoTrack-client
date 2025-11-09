@@ -9,7 +9,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
+        loader: () => fetch('http://localhost:3000/hero-slides')
       }
     ]
   }
