@@ -17,7 +17,7 @@ const Navbar = () => {
   </>;
 
   return (
-    <div className="navbar bg-white/99 shadow-sm">
+    <div className="navbar bg-white/30 backdrop-blur-lg shadow-sm">
       <div className='w-11/12 mx-auto grid grid-cols-3 items-center'>
         <div className="flex items-center">
           <div className="lg:hidden dropdown">
