@@ -11,7 +11,7 @@ const ActiveChallenges = () => {
       <div className='grid w-11/12 mt-5 mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {
           activeChallenges.map(data => (
-            <div className="card bg-base-100 border border-gray-200 shadow-lg hover:shadow-2xl transition">
+            <div key={data._id} className="card bg-base-100 border border-gray-200 shadow-lg hover:shadow-2xl transition">
               <div className='p-4'>
                 <img className='rounded-md border w-full h-52 object-cover border-gray-300' src={data.image} alt="Challenge" />
               </div>

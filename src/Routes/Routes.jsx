@@ -12,8 +12,10 @@ const router = createBrowserRouter([
         Component: Home,
         loader: async () => {
           const heroSlide = await fetch('http://localhost:3000/hero-slides').then(r => r.json());
+          const recentTips = await fetch('http://localhost:3000/renect-tips').then(r => r.json());
           const activeChallenges = await fetch('http://localhost:3000/active-challange').then(r => r.json());
-          return { heroSlide, activeChallenges };
+          const events = await fetch('http://localhost:3000/next-events').then(r => r.json());
+          return { heroSlide, activeChallenges, recentTips, events };
         }
       }
     ]
