@@ -12,12 +12,12 @@ const Navbar = () => {
     <li className='text-[15px] font-semibold'><NavLink>My Activities</NavLink></li>
     <div className="block lg:hidden space-y-1">
       <li><Link className='w-full sign-up'>Sign up</Link></li>
-      <li><Link className='w-full log-in'>Login</Link></li>
+      <li><Link className='w-full btn-main'>Login</Link></li>
     </div>
   </>;
 
   return (
-    <div className="navbar bg-white/97 shadow-sm">
+    <div className="navbar bg-white/99 shadow-sm">
       <div className='w-11/12 mx-auto grid grid-cols-3 items-center'>
         <div className="flex items-center">
           <div className="lg:hidden dropdown">
@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
         <div className="space-x-3.5 hidden lg:flex justify-end">
           <Link className='sign-up'><LuPlus size={20} />Sign up</Link>
-          <a className="log-in"><IoMdLogIn size={20} /> Log in</a>
+          <a className="btn-main"><IoMdLogIn size={20} /> Log in</a>
         </div>
       </div>
     </div>

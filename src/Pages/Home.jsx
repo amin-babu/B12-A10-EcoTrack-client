@@ -1,12 +1,16 @@
 import React from 'react';
 import HeroSlider from '../Components/HeroSlider';
 import { useLoaderData } from 'react-router';
+import LiveStats from '../Components/LiveStats';
+import ActiveChallenges from '../Components/ActiveChallenges';
 
 const Home = () => {
-  const sliderData = useLoaderData();
+  const {heroSlide} = useLoaderData();
   return (
     <div>
-      <HeroSlider sliderData={sliderData}/>
+      <HeroSlider heroSlide={heroSlide} />
+      <LiveStats />
+      <ActiveChallenges />
     </div>
   );
 };

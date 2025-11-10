@@ -10,7 +10,11 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch('http://localhost:3000/hero-slides')
+        loader: async () => {
+          const heroSlide = await fetch('http://localhost:3000/hero-slides').then(r => r.json());
+          const activeChallenges = await fetch('http://localhost:3000/active-challange').then(r => r.json());
+          return { heroSlide, activeChallenges };
+        }
       }
     ]
   }

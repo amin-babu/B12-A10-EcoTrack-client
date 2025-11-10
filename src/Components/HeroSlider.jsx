@@ -5,9 +5,8 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
-const HeroSlider = ({ sliderData }) => {
+const HeroSlider = ({ heroSlide }) => {
   const swiperRef = useRef(null);
-  console.log(sliderData);
   return (
     <div className="relative w-full h-[280px] md:h-[calc(100vh-65px)] overflow-hidden">
       <Swiper
@@ -18,7 +17,7 @@ const HeroSlider = ({ sliderData }) => {
         className="w-full h-full"
       >
         {
-          sliderData.map(data => (
+          heroSlide.map(data => (
             <SwiperSlide>
               <div className="w-full h-full relative">
                 <img
@@ -33,7 +32,7 @@ const HeroSlider = ({ sliderData }) => {
                   <p className="mb-4 text-sm md:text-base max-w-xl">
                     {data.subtitle}
                   </p>
-                  <button className="btn btn-primary">View Challenge</button>
+                  <button className="btn-main">View Challenge</button>
                 </div>
               </div>
             </SwiperSlide>
