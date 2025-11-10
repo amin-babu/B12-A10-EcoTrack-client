@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home";
+import Login from "../Pages/Login";
+import SignUp from "../Pages/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
           const events = await fetch('http://localhost:3000/next-events').then(r => r.json());
           return { heroSlide, activeChallenges, recentTips, events };
         }
+      },
+      {
+        path: '/login',
+        Component: Login
+      },
+      {
+        path: '/sign-up',
+        Component: SignUp
       }
     ]
   }
