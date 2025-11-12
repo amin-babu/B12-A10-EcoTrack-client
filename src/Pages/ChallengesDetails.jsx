@@ -18,7 +18,7 @@ const ChallengeDetails = () => {
   const challenge = useLoaderData();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isJoined, setIsJoined] = useState(false);
-  console.log(user);
+  console.log(challenge);
 
   const handleJoin = () => {
     fetch(`http://localhost:3000/challanges/join/${challenge._id}`, {
@@ -41,6 +41,37 @@ const ChallengeDetails = () => {
         setIsJoined(true);
       })
       .catch(err => console.error(err));
+  };
+
+  const handleDelete = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will never get this challange again",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        fetch(`http://localhost:3000/challanges/${challenge._id}`, {
+          method: 'DELETE'
+        })
+          .then(res => res.json())
+          .then(data => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your Chanllenge has been deleted.",
+              icon: "success"
+            });
+            console.log('After delete', data);
+            navigate('/challenges');
+          })
+
+
+      }
+    });
   };
 
   return (
@@ -141,14 +172,18 @@ const ChallengeDetails = () => {
                 }
 
                 {/* Delete Buttton */}
-                <div className="md:mt-6">
-                  <Link
-                    // onClick={() => handleDelete(challenge._id)}
-                    className="bg-[#E80B28] hover:bg-[#c90b22] block text-white px-5 py-2 rounded-md transition"
-                  >
-                    Delete
-                  </Link>
-                </div>
+                {
+                  user?.email === challenge.createdBy && (
+                    <div className="md:mt-6">
+                      <Link
+                        onClick={() => handleDelete(challenge._id)}
+                        className="bg-[#E80B28] hover:bg-[#c90b22] block text-white px-5 py-2 rounded-md transition"
+                      >
+                        Delete
+                      </Link>
+                    </div>
+                  )
+                }
 
               </div>
             </div>
