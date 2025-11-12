@@ -5,6 +5,7 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Challenges from "../Pages/Challenges";
 import ChallengesDetails from "../Pages/ChallengesDetails";
+import AddNewChallenge from "../Pages/AddNewChallenge";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path: '/challenges/:id',
         element: <ChallengesDetails />,
         loader: ({ params }) => fetch(`http://localhost:3000/challanges/${params.id}`)
+      },
+      {
+        path: '/challenges/add',
+        element: <AddNewChallenge />
       }
     ]
   }
