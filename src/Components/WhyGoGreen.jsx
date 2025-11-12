@@ -4,7 +4,7 @@ import { GiRecycle, GiSolarPower } from "react-icons/gi";
 
 const WhyGoGreen = () => {
   return (
-    <section className="py-16 bg-linear-to-b from-[#F7FDF9] to-[#F0F4FF] text-center">
+    <section className="pb-16 bg-linear-to-b from-[#F7FDF9] to-[#F0F4FF] text-center">
       <h2 className="text-3xl md:text-4xl font-bold text-[#041735]">
         Why Go Green?
       </h2>

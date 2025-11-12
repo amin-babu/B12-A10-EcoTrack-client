@@ -3,7 +3,7 @@ import { FaUsers, FaChartLine, FaRegLightbulb } from "react-icons/fa";
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 bg-linear-to-b from-[#F0F4FF] to-base-200">
+    <section className="bg-linear-to-b from-[#F0F4FF] to-base-200">
       <h2 className="text-3xl text-center md:text-4xl font-bold text-[#041735] mb-4">
         How It Works
       </h2>

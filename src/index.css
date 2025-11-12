@@ -17,6 +17,10 @@
   font-family: "Nunito Sans", sans-serif;
 }
 
+nav .menu a.active {
+  text-decoration: underline;
+}
+
 .btn-main {
   @apply btn bg-primary border px-3 font-[18px] border-primary h-0 py-4 shadow-none text-white;
 }
