@@ -1,34 +1,58 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import { FaSpinner } from 'react-icons/fa';
 
 const SignUp = () => {
 
-  const { createUser, signInWithGoogle } = use(AuthContext);
+  const { createUser, signInWithGoogle, updateUser, setUser, user } = use(AuthContext);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = e => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const displayName = form.displayName.value;
     const email = form.email.value;
     const password = form.password.value;
     const photoURL = form.photoURL.value;
 
+    const passwordValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}[\]:;"'<>,.?/~`\\-]).{6,}$/;
+    if (!passwordValid.test(password)) {
+      toast.error("Password must have 1 uppercase, 1 lowercase, 1 special character & be 6+ chars.");
+      setLoading(false);
+      return;
+    };
+
     createUser(email, password)
       .then(result => {
         console.log(result);
-        Swal.fire({
-          title: "You have created account successfully.",
-          icon: "success",
-          draggable: true
-        });
+        const userInfo = result.user;
+        updateUser({ displayName, photoURL })
+          .then(() => {
+            setUser({ ...userInfo, displayName, photoURL });
+            Swal.fire({
+              title: "You have created account successfully.",
+              icon: "success",
+              draggable: true
+            });
+            navigate('/');
+          })
+          .catch(error => {
+            toast.error(error);
+            setUser(user);
+          })
       })
       .catch(error => {
         console.log(error);
         toast.error(error.message);
       })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -71,7 +95,7 @@ const SignUp = () => {
             <div className='relative'>
               <label className="label font-semibold text-lg text-[#403F3F]">Password</label>
               <input autoComplete="current-password" name='password' required type="password" className="input bg-base-200 border-0 w-full" placeholder="Enter your password" />
-              {/* <span onClick={() => setShow(!show)} className="absolute right-[14px] top-[38px] cursor-pointer z-50">
+              {/* <span onClick={() => setShow(!show)} className="absolute right-3.5 top-[38px] cursor-pointer z-50">
                 {
                   show ? <FaEye size={20} /> : <IoEyeOff size={20} />
                 }
@@ -79,7 +103,18 @@ const SignUp = () => {
             </div>
 
             {/* register button */}
-            <button type='submit' className="btn mt-1 bg-primary rounded-sm border-primary text-white shadow-none btn-neutral">Register</button>
+            <button type='submit' className="btn mt-1 bg-primary rounded-sm border-primary text-white shadow-none btn-neutral">
+              {
+                loading ? (
+                  <>
+                    <FaSpinner className="animate-spin mr-2" />
+                    Signing up...
+                  </>
+                ) : (
+                  "Sign up"
+                )
+              }
+            </button>
 
             {/* devider */}
             <div className="flex items-center my-3">

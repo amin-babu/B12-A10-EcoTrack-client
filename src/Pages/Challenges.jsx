@@ -35,6 +35,9 @@ const Challenges = () => {
                       <p className="text-sm text-gray-500">{`${data.participants} ${data.impactMetric}`}</p>
                     </div>
                   </div>
+                  <p className="text-gray-600 text-left text-sm leading-relaxed">
+                    {data.description}
+                  </p>
                 </div>
               </div>
             ))

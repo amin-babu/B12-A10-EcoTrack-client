@@ -6,6 +6,10 @@ import SignUp from "../Pages/SignUp";
 import Challenges from "../Pages/Challenges";
 import ChallengesDetails from "../Pages/ChallengesDetails";
 import AddNewChallenge from "../Pages/AddNewChallenge";
+import ForgotPassword from "../Pages/ForgotPassword";
+import NotFound from "../Pages/NotFound";
+import PrivateRoute from "../Contexts/PrivateRoute";
+import EditChallenge from "../Pages/EditChallenge";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +47,25 @@ const router = createBrowserRouter([
       },
       {
         path: '/challenges/add',
-        element: <AddNewChallenge />
+        element: <PrivateRoute>
+          <AddNewChallenge />
+        </PrivateRoute>
+      },
+      {
+        path: '/forgot-password',
+        Component: ForgotPassword
+      },
+      {
+        path: '/edit-challenge/:id',
+        element: (
+          <PrivateRoute>
+            <EditChallenge />
+          </PrivateRoute>
+        )
+      },
+      {
+        path: '/*',
+        Component: NotFound
       }
     ]
   }

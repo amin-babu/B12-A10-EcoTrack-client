@@ -25,7 +25,7 @@ const Navbar = () => {
 
   const links = <>
     <li className='text-[15px] font-semibold'><NavLink to='/'>Home</NavLink></li>
-    <li className='text-[15px] font-semibold'><NavLink to='/challenges'>Challenges</NavLink></li>
+    <li className='text-[15px] font-semibold'><NavLink to='/challenges' end>Challenges</NavLink></li>
     <li className='text-[15px] font-semibold'><NavLink to='/challenges/add'>Add New Challenge</NavLink></li>
     <div className="block md:hidden space-y-1">
       {

@@ -1,15 +1,21 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { use, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import { FaSpinner } from 'react-icons/fa';
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
 
   const { signInUser, signInWithGoogle, setUser } = use(AuthContext);
 
   const handleLogin = e => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -22,11 +28,15 @@ const Login = () => {
           icon: "success",
           draggable: true
         });
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(error => {
         console.log(error);
         toast.error(error.message);
       })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -35,10 +45,11 @@ const Login = () => {
         // console.log(result.user);
         setUser(result.user);
         Swal.fire({
-          title: "You have created account successfully.",
+          title: "You have logged in successfully.",
           icon: "success",
           draggable: true
         });
+        navigate(`${location.state ? location.state : '/'}`);
       })
       .catch(error => {
         console.log(error);
@@ -76,7 +87,16 @@ const Login = () => {
               </Link>
 
               {/* log-in button */}
-              <button type='submit' className="btn mt-1 bg-primary rounded-sm border-primary text-white shadow-none btn-neutral">Login</button>
+              <button type='submit' disabled={loading} className="btn mt-1 bg-primary rounded-sm border-primary text-white shadow-none btn-neutral">
+                {loading ? (
+                  <>
+                    <FaSpinner className="animate-spin mr-2" />
+                    Logging in...
+                  </>
+                ) : (
+                  "Login"
+                )}
+              </button>
 
               {/* devider */}
               <div className="flex items-center my-3">
