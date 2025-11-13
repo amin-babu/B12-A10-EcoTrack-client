@@ -10,6 +10,7 @@ import ForgotPassword from "../Pages/ForgotPassword";
 import NotFound from "../Pages/NotFound";
 import PrivateRoute from "../Contexts/PrivateRoute";
 import EditChallenge from "../Pages/EditChallenge";
+import MyActivities from "../Pages/MyActivities";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,13 @@ const router = createBrowserRouter([
             <EditChallenge />
           </PrivateRoute>
         )
+      },
+      {
+        path: '/my-activities',
+        element: <PrivateRoute>
+          <MyActivities/>
+        </PrivateRoute>,
+        loader: () => fetch('http://localhost:3000/my-activities')
       },
       {
         path: '/*',

@@ -56,9 +56,9 @@ const Navbar = () => {
                 </button>
               </li>
               <li>
-                <button className="text-xs font-semibold w-full py-2 rounded-md hover:bg-[#7E59D3] hover:text-white transition">
+                <Link to='/my-activities' className="text-xs font-semibold w-full py-2 rounded-md hover:bg-[#7E59D3] hover:text-white transition">
                   My Activities
-                </button>
+                </Link>
               </li>
               <li onClick={handleSignOut}>
                 <button className="text-xs font-semibold w-full py-2 rounded-md hover:bg-[#5EC57E] hover:text-white transition">
@@ -125,9 +125,9 @@ const Navbar = () => {
                     </button>
                   </li>
                   <li>
-                    <button className="text-[16px] font-semibold w-full py-2 rounded-md hover:bg-[#7E59D3] hover:text-white transition">
+                    <Link to='/my-activities' className="text-[16px] font-semibold w-full py-2 rounded-md hover:bg-[#7E59D3] hover:text-white transition">
                       My Activities
-                    </button>
+                    </Link>
                   </li>
                   <li onClick={handleSignOut}>
                     <button className="text-[16px] font-semibold w-full py-2 rounded-md hover:bg-[#5EC57E] hover:text-white transition">
