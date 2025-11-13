@@ -21,7 +21,7 @@ const ChallengeDetails = () => {
   console.log(challenge);
 
   const handleJoin = () => {
-    fetch(`http://localhost:3000/challanges/join/${challenge._id}`, {
+    fetch(`https://eco-track-server-rho.vercel.app/challanges/join/${challenge._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const ChallengeDetails = () => {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        fetch(`http://localhost:3000/challanges/${challenge._id}`, {
+        fetch(`https://eco-track-server-rho.vercel.app/challanges/${challenge._id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

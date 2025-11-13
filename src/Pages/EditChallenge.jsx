@@ -10,7 +10,7 @@ const EditChallenge = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/challanges/${id}`)
+    fetch(`https://eco-track-server-rho.vercel.app/challanges/${id}`)
       .then(res => res.json())
       .then(data => setChallenge(data));
   }, [id]);
@@ -33,7 +33,7 @@ const EditChallenge = () => {
       endDate: form.endDate.value,
     };
 
-    fetch(`http://localhost:3000/challanges/${id}`, {
+    fetch(`https://eco-track-server-rho.vercel.app/challanges/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedChallenge),

@@ -27,7 +27,7 @@ const Challenges = () => {
     if (filters.maxParticipants) query.append("maxParticipants", filters.maxParticipants);
 
 
-    const res = await fetch(`http://localhost:3000/challanges?${query.toString()}`);
+    const res = await fetch(`https://eco-track-server-rho.vercel.app/challanges?${query.toString()}`);
     const data = await res.json();
     setChallenges(data);
   };

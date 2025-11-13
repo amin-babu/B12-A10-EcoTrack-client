@@ -26,7 +26,7 @@ const AddNewChallenge = () => {
     e.preventDefault();
     console.log(challenge);
 
-    fetch('http://localhost:3000/api/challanges', {
+    fetch('https://eco-track-server-rho.vercel.app/api/challanges', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"

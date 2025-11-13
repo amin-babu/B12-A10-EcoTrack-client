@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
-import { FaSpinner } from 'react-icons/fa';
+import { FaEye, FaSpinner } from 'react-icons/fa';
+import { IoEyeOff } from 'react-icons/io5';
 
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
+  const [show, setShow] = useState(false);
 
   const { signInUser, signInWithGoogle, setUser } = use(AuthContext);
 
@@ -73,12 +74,12 @@ const Login = () => {
               {/* password */}
               <div className='relative'>
                 <label className="label font-semibold text-lg text-[#403F3F]">Password</label>
-                <input autoComplete="current-password" name='password' required type="password" className="input bg-base-200 border-0 w-full" placeholder="Enter your password" />
-                {/* <span onClick={() => setShow(!show)} className="absolute right-3.5 top-[38px] cursor-pointer z-50">
-                {
-                  show ? <FaEye size={20} /> : <IoEyeOff size={20} />
-                }
-              </span> */}
+                <input autoComplete="current-password" name='password' required type={show ? "text" : "password"} className="input bg-base-200 border-0 w-full" placeholder="Enter your password" />
+                <span onClick={() => setShow(!show)} className="absolute right-3.5 top-[38px] cursor-pointer z-50">
+                  {
+                    show ? <FaEye size={20} /> : <IoEyeOff size={20} />
+                  }
+                </span>
               </div>
 
               {/* forgot password */}

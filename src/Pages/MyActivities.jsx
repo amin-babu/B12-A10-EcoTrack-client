@@ -8,7 +8,7 @@ const MyActivities = () => {
   const [mergedData, setMergedData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/challanges")
+    fetch("https://eco-track-server-rho.vercel.app/challanges")
       .then((res) => res.json())
       .then((data) => setChallengeData(data));
   }, []);
@@ -35,7 +35,7 @@ const MyActivities = () => {
     const currentProgress = parseInt(updatedItem.progress);
     const newProgress = Math.min(currentProgress + 10, 100);
 
-    fetch(`http://localhost:3000/userChallenges/${id}`, {
+    fetch(`https://eco-track-server-rho.vercel.app/userChallenges/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ progress: `${newProgress}%` }),

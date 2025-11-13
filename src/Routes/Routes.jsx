@@ -21,10 +21,10 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: async () => {
-          const heroSlide = await fetch('http://localhost:3000/hero-slides').then(r => r.json());
-          const recentTips = await fetch('http://localhost:3000/renect-tips').then(r => r.json());
-          const activeChallenges = await fetch('http://localhost:3000/active-challenges').then(r => r.json());
-          const events = await fetch('http://localhost:3000/next-events').then(r => r.json());
+          const heroSlide = await fetch('https://eco-track-server-rho.vercel.app/hero-slides').then(r => r.json());
+          const recentTips = await fetch('https://eco-track-server-rho.vercel.app/renect-tips').then(r => r.json());
+          const activeChallenges = await fetch('https://eco-track-server-rho.vercel.app/active-challenges').then(r => r.json());
+          const events = await fetch('https://eco-track-server-rho.vercel.app/next-events').then(r => r.json());
           return { heroSlide, activeChallenges, recentTips, events };
         }
       },
@@ -39,12 +39,12 @@ const router = createBrowserRouter([
       {
         path: '/challenges',
         Component: Challenges,
-        loader: () => fetch('http://localhost:3000/challanges').then(r => r.json())
+        loader: () => fetch('https://eco-track-server-rho.vercel.app/challanges').then(r => r.json())
       },
       {
         path: '/challenges/:id',
         element: <ChallengesDetails />,
-        loader: ({ params }) => fetch(`http://localhost:3000/challanges/${params.id}`)
+        loader: ({ params }) => fetch(`https://eco-track-server-rho.vercel.app/challanges/${params.id}`)
       },
       {
         path: '/challenges/add',
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyActivities/>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:3000/my-activities')
+        loader: () => fetch('https://eco-track-server-rho.vercel.app/my-activities')
       },
       {
         path: '/*',
