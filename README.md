@@ -1,16 +1,42 @@
-# React + Vite
+# 🌿 EcoTrack — Environmental Challenge & Awareness Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site URL:** [coming soon...](#)  
+**Server URL:** [comming soon...](#)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌱 About the Project
+EcoTrack is an interactive platform where users can join eco-friendly challenges, track their progress, and contribute to environmental sustainability. The website promotes green habits through community-driven challenges and environmental awareness.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+1. **User Authentication (Firebase):**  
+   Secure login and registration system using Firebase Authentication.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Dynamic Challenges Section:**  
+   Users can explore all active environmental challenges and join them instantly.
+
+3. **Participant Progress Tracking:**  
+   Each user can monitor and update their individual progress in joined challenges.
+
+4. **Admin Dashboard (Bonus):**  
+   Admins can manage challenges, view participants, and oversee the community’s impact.
+
+5. **Interactive UI with Animations:**  
+   A clean and responsive UI built with Tailwind CSS and DaisyUI for smooth user experience.
+
+6. **Live Data from MongoDB:**  
+   All challenges, events, and progress are fetched dynamically from the MongoDB database.
+
+---
+
+## 🧩 Tech Stack
+
+- **Frontend:** React, React Router, Tailwind CSS, DaisyUI  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB  
+- **Authentication:** Firebase  
+- **Deployment:** Vercel & Netlify (Client & Server)
+
