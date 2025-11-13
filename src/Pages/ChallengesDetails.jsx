@@ -69,7 +69,6 @@ const ChallengeDetails = () => {
             navigate('/challenges');
           })
 
-
       }
     });
   };
