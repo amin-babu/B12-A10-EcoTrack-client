@@ -1,7 +1,7 @@
 # 🌿 EcoTrack — Environmental Challenge & Awareness Platform
 
-**Live Site URL:** [coming soon...](#)  
-**Server URL:** [comming soon...](#)
+**Live Site URL:** [https://b12-a10-ec0-track.netlify.app/](#)  
+**Server URL:** [https://github.com/amin-babu/B12-A10-EcoTrack-Server](#)
 
 ---
 
@@ -40,3 +40,53 @@ EcoTrack is an interactive platform where users can join eco-friendly challenges
 - **Authentication:** Firebase  
 - **Deployment:** Vercel & Netlify (Client & Server)
 
+---
+
+## 📦 Dependencies
+
+```json
+"dependencies": {
+  "@tailwindcss/vite": "^4.1.17",
+  "firebase": "^12.5.0",
+  "react": "^19.1.1",
+  "react-dom": "^19.1.1",
+  "react-hot-toast": "^2.6.0",
+  "react-icons": "^5.5.0",
+  "react-router": "^7.9.5",
+  "sweetalert2": "^11.26.3",
+  "swiper": "^12.0.3",
+  "tailwindcss": "^4.1.17"
+}
+```
+
+## 🚀 How to Run This Project Locally
+
+Follow the steps below to set up and run the project on your local machine:
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/amin-babu/B12-A10-EcoTrack-Client.git
+cd B12-A10-EcoTrack-Client
+npm install
+```
+
+### 2️⃣ Environment Setup (.env)
+
+Create a new file named **.env** in the root of the project and paste the following configuration:
+
+```env
+VITE_apiKey=YOUR_FIREBASE_API_KEY
+VITE_authDomain=YOUR_FIREBASE_AUTH_DOMAIN
+VITE_projectId=YOUR_FIREBASE_PROJECT_ID
+VITE_storageBucket=YOUR_FIREBASE_STORAGE_BUCKET
+VITE_messagingSenderId=YOUR_FIREBASE_MESSAGING_SENDER_ID
+VITE_appId=YOUR_FIREBASE_APP_ID
+```
+
+### 3️⃣ Start the Development Server
+```
+npm run dev
+```
+
+Now open the project in your browser at:
+👉 http://localhost:5173
