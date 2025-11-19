@@ -1,6 +1,6 @@
 # 🌿 EcoTrack — Environmental Challenge & Awareness Platform
 
-**Live Site URL:** [https://b12-a10-ec0-track.netlify.app/](#)  
+**Live Site URL:** https://b12-a10-ec0-track.netlify.app/
 **Server URL:** [https://github.com/amin-babu/B12-A10-EcoTrack-Server](#)
 
 ---
